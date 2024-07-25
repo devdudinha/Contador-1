@@ -14,7 +14,7 @@ body {
 .like-progress {
     position: relative;
     height: 65px;
-    width: 500px; /* Aumenta a largura da barra de progresso */
+    width: 350px; /* Aumenta a largura da barra de progresso */
     background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 0 auto;
@@ -27,20 +27,20 @@ body {
     align-items: center;
     height: 100%;
     width: 0;
-    background: linear-gradient(to right, gray, gold);
+    background-color: #c67b22;
     transition: width 0.5s ease-in-out;
 }
 
 .like-info {
     position: absolute;
-    top: 50%;
+    top: 70%; /* Ajusta a posição vertical dos likes */
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1.6em;
     color: rgba(255, 255, 255, 0.884);
     text-shadow: 1px 1px 2px #000000, -1px -1px 2px #555555;
     white-space: nowrap;
-    overflow: visible; /* Permite que o texto seja exibido corretamente */
+    overflow: visible;
 }
 
 .live-link-input {
