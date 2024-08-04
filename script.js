@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyAhf1wm4e_UfJc0XRGq7xXMlQ_RbdgXKsI';
+const API_KEY = 'AIzaSyCqv78k5T-i4z2pJB7wq17VQktCh3wAx20';
 let VIDEO_ID = '';
 let TARGET_LIKES = 100; // Número de likes desejado por padrão
 
