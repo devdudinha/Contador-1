@@ -92,4 +92,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Atualiza os likes a cada 5 segundos
-setInterval(updateLikes, 5000);
+setInterval(updateLikes, 1000);
