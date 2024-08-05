@@ -30,20 +30,17 @@ function updateProgressBar(likes) {
     const progressBarFill = document.getElementById('like-progress-fill');
     const likeCount = document.getElementById('like-count');
     const likeGoal = document.getElementById('like-goal');
-    const percentage = (likes / TARGET_LIKES) * 100;
+    let percentage = (likes / TARGET_LIKES) * 100;
+
+    // Se atingir ou ultrapassar a meta
+    if (likes >= TARGET_LIKES) {
+        TARGET_LIKES = calculateTargetLikes(likes); // Calcula a nova meta
+        percentage = 0; // Reseta a barra de progresso
+    }
 
     progressBarFill.style.width = `${Math.min(percentage, 100)}%`;
     likeCount.textContent = likes;
     likeGoal.textContent = TARGET_LIKES;
-
-    if (likes >= TARGET_LIKES) {
-        // Atualiza a meta para a próxima centena
-        TARGET_LIKES = calculateTargetLikes(likes);
-        // Atualiza o valor da meta na UI
-        likeGoal.textContent = TARGET_LIKES;
-        // Redefine a barra de progresso
-        progressBarFill.style.width = '0%';
-    }
 }
 
 async function updateLikes() {
@@ -91,5 +88,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Atualiza os likes a cada 5 segundos
+// Atualiza os likes a cada 1 segundos
 setInterval(updateLikes, 1000);
