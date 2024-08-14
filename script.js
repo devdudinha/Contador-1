@@ -35,7 +35,7 @@ function updateProgressBar(likes) {
     // Se atingir ou ultrapassar a meta
     if (likes >= TARGET_LIKES) {
         TARGET_LIKES = calculateTargetLikes(likes); // Calcula a nova meta
-        percentage = 0; // Reseta a barra de progresso
+        percentage = 0; // Reseta a barra de progresso para 0%
     }
 
     progressBarFill.style.width = `${Math.min(percentage, 100)}%`;
