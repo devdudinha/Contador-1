@@ -1,6 +1,7 @@
 const API_KEY = 'AIzaSyCqv78k5T-i4z2pJB7wq17VQktCh3wAx20';
 let VIDEO_ID = '';
 let TARGET_LIKES = 100; // Número de likes desejado por padrão
+let PROGRESS_BAR_PERCENTAGE = 0;
 
 function extractVideoID(url) {
     const urlObj = new URL(url);
@@ -30,15 +31,14 @@ function updateProgressBar(likes) {
     const progressBarFill = document.getElementById('like-progress-fill');
     const likeCount = document.getElementById('like-count');
     const likeGoal = document.getElementById('like-goal');
-    let percentage = (likes / TARGET_LIKES) * 100;
+    PROGRESS_BAR_PERCENTAGE = 100 - Math.abs(TARGET_LIKES - likes);
 
     // Se atingir ou ultrapassar a meta
     if (likes >= TARGET_LIKES) {
         TARGET_LIKES = calculateTargetLikes(likes); // Calcula a nova meta
-        percentage = 0; // Reseta a barra de progresso para 0%
     }
 
-    progressBarFill.style.width = `${Math.min(percentage, 100)}%`;
+    progressBarFill.style.width = `${PROGRESS_BAR_PERCENTAGE}%`;
     likeCount.textContent = likes;
     likeGoal.textContent = TARGET_LIKES;
 }
